@@ -3,12 +3,16 @@
 namespace x51\yii2\modules\blocks;
 use \yii\filters\AccessControl;
 use models\Blocks;
+use \Yii;
 
 /**
  * blocks module definition class
  */
 class Module extends \yii\base\Module
 {
+    public $name;
+    public $description;
+
     /**
      * {@inheritdoc}
      */
@@ -49,6 +53,12 @@ class Module extends \yii\base\Module
                 ],
             ];
         }
+        if (!$this->name) {
+            $this->name = Yii::t('module/blocks', 'Blocks');
+        }
+        if (!$this->description) {
+            $this->description = Yii::t('module/blocks', 'Manage blocks site.');
+        }
     }
 
     public function getBlockByCode($code) {
@@ -58,5 +68,21 @@ class Module extends \yii\base\Module
         }
         return false;
     } // end getBlockContentByCode
+
+    // реализация ISupportAdminPanel
+    public function apModuleName() {
+        return $this->name;
+    }
+
+    public function apModuleDesc() {
+        return $this->description;
+    }
+
+    public function apAdminMenu() {
+        return [
+            ['label' => Yii::t('module/blocks', 'List'), 'url' => ['/'.$this->id]],            
+            ['label' => Yii::t('module/blocks', 'Garbage'), 'url' => ['/'.$this->id.'/garbage']],
+        ];
+    }
 
 } // end class

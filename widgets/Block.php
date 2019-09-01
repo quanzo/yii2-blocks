@@ -1,5 +1,6 @@
 <?php
 namespace x51\yii2\modules\blocks\widgets;
+use \Yii;
 
 class Block extends \yii\base\Widget
 {
@@ -82,7 +83,7 @@ class Block extends \yii\base\Widget
                     } else {
                         if (substr_count($call, '/') > 1) {
                             try {
-                                $contentElement = \Yii::$app->runAction($call, ['internal' => true]);
+                                $contentElement = Yii::$app->runAction($call, ['internal' => true]);
                             } catch (\Exception $e) {}
                         }
                     }

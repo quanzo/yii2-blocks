@@ -2,7 +2,7 @@
 
 namespace x51\yii2\modules\blocks\models;
 
-use Yii;
+use \Yii;
 use \x51\yii2\modules\auth\classes\RoleRule;
 use \x51\functions\funcString;
 
@@ -39,7 +39,7 @@ class Blocks extends \yii\db\ActiveRecord
 
     public function setCurrentUserId()
     {
-        $this->user_id = \Yii::$app->user->id;
+        $this->user_id = Yii::$app->user->id;
     }
 
     /**
@@ -104,7 +104,7 @@ class Blocks extends \yii\db\ActiveRecord
         }
 
         if ($result && !empty($this->route)) {
-            $currRoute = \Yii::$app->controller->route;
+            $currRoute = Yii::$app->controller->route;
             $arRoutesView = funcString::explode([',', ' '], $this->route, true);
             if ($arRoutesView) {
                 $match = false;
