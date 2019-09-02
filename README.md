@@ -80,3 +80,10 @@ echo \x51\yii2\modules\blocks\widgets\Group::widget([
     'afterElement' => '' // display content after each element
 ]);
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Picture
+-------
+
+![List](pic/blocks_1.png)
+
+![Update or add form](pic/blocks_2.png)
